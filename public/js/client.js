@@ -2,7 +2,7 @@
 
 
 window.addEventListener('load', pageLoad);
-const today = document.querySelector('day0');
+const today = document.querySelector('#day0');
 
 function pageLoad(){
   oReq = new XMLHttpRequest();
@@ -13,6 +13,17 @@ function pageLoad(){
 
 function display(){
   const requestData = JSON.parse(this.responseText);
-  const weather = requestData;
+  const weather = requestData.list;
   console.log(weather);
+  fiveDay(weather);
+}
+
+function fiveDay(arr){
+  for(var i = 0; i < 5; i++){
+    const current = arr[i].weather[0].description;
+    console.log(current);
+    const description = document.createElement('h1');
+    description.innerHTML = current;
+    today.appendChild(description);
+  }
 }
