@@ -1,3 +1,13 @@
-body{
-  background-color: green;
+#city{
+  display: flex;
+  justify-content: center;
+}
+#weekly{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   }
+.day{
+  padding:10px;
+  border: 1px black solid
+}
