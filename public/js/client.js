@@ -1,11 +1,19 @@
 /*jshint esversion: 6*/
-window.addEventListener('load', pageLoad);
+const update = document.querySelector('#update');
+const page = document.querySelector('.day');
+const zip = document.querySelector('#zip');
+update.addEventListener('click', pageLoad);
+
+function pageClear(){
+  page.innerHTML = '';
+  pageLoad();
+}
 
 
 function pageLoad(){
   oReq = new XMLHttpRequest();
   oReq.addEventListener('load', display);
-  oReq.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?zip=60137&appid=' + API_KEY);
+  oReq.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?zip='+ zip.value + '&appid=' + API_KEY);
   oReq.send();
 }
 
